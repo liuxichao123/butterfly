@@ -15,11 +15,15 @@ export default ({node, canvas}) => {
   >
     <span className="icon" />
     <span>
-      <Select defaultValue={node.text} options={options} onChange={() => {
+      <Select defaultValue={node.text} onChange={() => {
         setTimeout(() => {
           canvas.redraw();
         });
-      }} ></Select>
+      }} >
+          {options.map((item) =>
+            <option value={item.value} title={item.value}>{item.value}</option>
+          )}
+      </Select>
     </span>
   </div>;
 };
